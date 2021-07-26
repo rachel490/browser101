@@ -1,0 +1,40 @@
+< 접근법 >
+1. 콘솔창에 마우스의 움직임에 따라 변하는 좌표를 먼저 출력해보기    
+    => 이벤트 : mousemove (마우스가 움직이는 공간 = element이므로 body에 이벤트를 추가해줌)
+
+2. 좌표를 나타내는 텍스트를 마우스와 같이 움직이게 하기
+    => body에 span을 추가한후 css에서 position:absolute로 설정
+    => 자바스크립트에서 style.top (y좌표와 일치) , style.left (x좌표와 일치)를 이용해서 position 동적으로 바꿔주기
+    => 마우스 커서와 텍스트 사이에 공간을 확보해주기 위해 +10을 해줌
+
+    POINT 
+    - style.top, style.left의 값을 설정할 경우 뒤에 px단위를 붙여줘야하므로 string template을 이용해서 뒤에 px도 붙여줘야지 적용됨
+
+2. 선을 어떻게 표시할지 고민하기
+    => div를 2개 만들기 : 1개는 세로선을, 1개는 가로선을 표시
+    => 세로선: height 100vh, width: 1px -> border-righ만줌 -> position는 x축으로만 이동하므로 left만줌
+    => 가로선: width 100%, height: 1px -> border-top만줌 -> position는 y축으로만 이동하므로 top만줌
+ 
+
+< 문제점 >
+오차가 살짝 발생함 -> 아니네... ㅋㅋㅋ 어차피 텍스트만 정확한 좌표를 보여주면 되므로 괜찮음!
+
+
+------------------------------------------------------------------------------------------
+
+>>>> 엘리님 해설강의 <<<<
+
+1. 우선적으로 초기화면 구현해놓고 시작 
+    -> 필요한 요소들이 뭐뭔지 확인 : line 2개, img 1개, text 1개
+    -> html 작성 : class 지정해주기 (공통된 Line 2개는 공통 class를 갖게)
+    -> css 작성 : 초기 스타일 지정 (마우스가 올라가기 전 line 두개가 정중앙에 있도록 함, img를 정중앙으로 배치해주기)
+    -> js 작성 : 동적으로 만들어야하는 부분을 지정해서 바꿔줌 
+
+2. line을 만들때는 굳이 나처럼 border로 설정할 필요없이 background-color: white으로 하고 높이를 1px로 하면됨. 
+    => 1px이면 box도 line처럼 보이니깐...
+
+3. img 정중앙으로 배치해주기 위해서 transform -> translate 사용 : 정중앙 배치를 위해서 width, height의 50%씩 이동
+
+4. text도 적절한 위치 배정을 위해 먼저 정중앙으로 top,left이용해서 해주고 미세한 위치 조정을 위해 translate 사용
+
+5. 동적으로 postiton: absolute의 top,left을 바꿔줄때는 px를 붙여줘야함 (string template 사용)

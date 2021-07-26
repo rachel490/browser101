@@ -1,0 +1,34 @@
+.box {
+    height: 250px;
+    width: 250px;
+    background-color: tomato;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.special-box {
+    background-color: teal;
+}
+
+.special-box:hover {
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+}
+
+.buttons button {
+    padding: 3px;
+    border-radius: 3px;
+    background-color: lavender;
+    border: none;
+    margin-right: 5px;
+}
+
+.buttons button:hover {
+    cursor: pointer;
+}
